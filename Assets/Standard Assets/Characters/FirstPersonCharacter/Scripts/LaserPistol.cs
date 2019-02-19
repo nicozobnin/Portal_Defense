@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LaserPistol : GunBase
 {
+    public GameObject Muzzle;
 
     // Use this for initialization
     void Start()
@@ -26,6 +27,18 @@ public class LaserPistol : GunBase
         if (m_CanFire == true)
         {
             m_CanFire = false;
+
+            // Raycast for damage
+            RaycastHit hit;
+            Ray landingRay = new Ray(Muzzle.transform.position, transform.forward);
+
+            if (Physics.Raycast(landingRay, out hit, 1000.0f))
+            {
+                if (hit.collider.tag == "Enemy")
+                {
+                    hit.collider.gameObject.GetComponent<Enemy>().TakeDame(1.0f);
+                }
+            }
         }
     }
 }
