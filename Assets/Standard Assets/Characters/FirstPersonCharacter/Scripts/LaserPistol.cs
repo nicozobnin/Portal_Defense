@@ -36,7 +36,7 @@ public class LaserPistol : GunBase
             {
                 if (hit.collider.tag == "Enemy")
                 {
-                    hit.collider.gameObject.GetComponent<Enemy>().TakeDame(1.0f);
+                    hit.collider.gameObject.GetComponent<Enemy>().TakeDamage(1.0f);
                 }
             }
         }

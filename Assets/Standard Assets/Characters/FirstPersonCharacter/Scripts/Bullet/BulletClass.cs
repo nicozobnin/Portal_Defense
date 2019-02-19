@@ -25,7 +25,7 @@ public class BulletClass : MonoBehaviour
     {
         Enemy enemyToDamage = objectToDamage.GetComponent<Enemy>();
         //call this when dealling damage
-            enemyToDamage.TakeDame(Damage);
+            enemyToDamage.TakeDamage(Damage);
     }
    
 
