@@ -21,19 +21,26 @@ public class BulletClass : MonoBehaviour
 
 	}
 
-    public virtual void applyDamage()
+    public virtual void applyDamage(GameObject objectToDamage)
     {
+        Enemy enemyToDamage = objectToDamage.GetComponent(typeof(Enemy)) as Enemy;
         //call this when dealling damage
-
+        if(objectToDamage == enemyToDamage)
+        {
+            enemyToDamage.TakeDame(Damage);
+        }
 
     }
-
+   
 
     Rigidbody bulletRigidBody;
+
     SphereCollider BulletsphereCollider;
 
     public string BulletName;
+
     public float Damage;
+
     GameObject BulletGameObject;
 
 }

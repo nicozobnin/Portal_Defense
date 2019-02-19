@@ -18,13 +18,14 @@ public class Enemy : MonoBehaviour
         
 	}
 
-    void TakeDame(float damage)
+    public void TakeDame(float damage)
     {
 
         health -= damage;
         if(damage < 0)
         {
             //kill enemy
+            Destroy(gameObject);
         }
 
     }

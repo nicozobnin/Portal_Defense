@@ -17,8 +17,13 @@ public class PlasmaBullet : BulletClass
 		
 	}
 
-    public override void applyDamage()
+    public override void applyDamage(GameObject itemToDamage)
     {
-        base.applyDamage();
+        base.applyDamage(itemToDamage);
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+
+        applyDamage(collision.gameObject);
     }
 }
