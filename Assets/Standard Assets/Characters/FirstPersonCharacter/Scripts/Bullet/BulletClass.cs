@@ -14,22 +14,18 @@ public class BulletClass : MonoBehaviour
 
 	
     // Update is called once per frame
-	void Update ()
+	public virtual void Update ()
     {
 
 
 
 	}
 
-    public virtual void applyDamage(GameObject objectToDamage)
+    public virtual void applyDamage(GameObject objectToDamage, float damage)
     {
-        Enemy enemyToDamage = objectToDamage.GetComponent(typeof(Enemy)) as Enemy;
+        Enemy enemyToDamage = objectToDamage.GetComponent<Enemy>();
         //call this when dealling damage
-        if(objectToDamage == enemyToDamage)
-        {
             enemyToDamage.TakeDame(Damage);
-        }
-
     }
    
 
@@ -43,4 +39,5 @@ public class BulletClass : MonoBehaviour
 
     GameObject BulletGameObject;
 
+    float initialVelocity;
 }
