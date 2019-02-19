@@ -20,12 +20,12 @@ public class PlasmaRifle : GunBase
     {
         base.Update();
     }
-
-    public void Fire()
+    public override void Fire()
     {
         if (m_CanFire == true)
         {
             m_CanFire = false;
         }
+        base.Fire();
     }
 }

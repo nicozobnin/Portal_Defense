@@ -22,7 +22,7 @@ public class LaserPistol : GunBase
         base.Update();
     }
 
-    public void Fire()
+    public override void Fire()
     {
         if (m_CanFire == true)
         {
@@ -31,6 +31,8 @@ public class LaserPistol : GunBase
             // Raycast for damage
             RaycastHit hit;
             Ray landingRay = new Ray(Muzzle.transform.position, transform.forward);
+
+            Debug.DrawRay(Muzzle.transform.position, transform.forward, Color.green);
 
             if (Physics.Raycast(landingRay, out hit, 1000.0f))
             {

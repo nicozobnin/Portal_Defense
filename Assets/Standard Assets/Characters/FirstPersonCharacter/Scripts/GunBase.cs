@@ -33,6 +33,10 @@ public class GunBase : MonoBehaviour
         }
     }
 
+    virtual public void Fire()
+    {
+
+    }
     public float m_FireDelay;
     public GunType m_GunType;
 

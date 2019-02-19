@@ -10,6 +10,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
     [RequireComponent(typeof (AudioSource))]
     public class FirstPersonController : MonoBehaviour
     {
+        //Gun Mechanics
+        public GameObject equiptedGun;
+        GunBase gun;
+
+
         [SerializeField] private bool m_IsWalking;
         [SerializeField] private float m_WalkSpeed;
         [SerializeField] private float m_RunSpeed;
@@ -55,6 +60,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
+
+
+            gun = equiptedGun.GetComponent<GunBase>();
+
         }
 
 
@@ -231,14 +240,26 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 StopAllCoroutines();
                 StartCoroutine(!m_IsWalking ? m_FovKick.FOVKickUp() : m_FovKick.FOVKickDown());
             }
+
+
+            if(Input.GetButtonDown("Fire1"))
+            {
+                FireGun();
+            }
         }
 
 
         private void RotateView()
         {
             m_MouseLook.LookRotation (transform, m_Camera.transform);
+            gun.transform.forward = m_Camera.transform.forward;
         }
 
+        void FireGun()
+        {
+            Debug.Log("Player is pressing to shoot");
+            gun.Fire();
+        }
 
         private void OnControllerColliderHit(ControllerColliderHit hit)
         {
