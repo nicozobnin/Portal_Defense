@@ -5,17 +5,17 @@ using UnityEngine;
 public class LaserPistol : GunBase
 {
     public GameObject Muzzle;
-
+    [SerializeField]
+    float bulletRadius = 0.125f;
     // Use this for initialization
     void Start()
     {
         m_GunType = GunType.Pistol;
-        m_FireDelay = 0.1f;
         m_FireDelayTimer = m_FireDelay;
 
         m_CanFire = true;
     }
-
+    CharacterController charCtrl;
     // Update is called once per frame
     protected override void Update()
     {
@@ -30,17 +30,35 @@ public class LaserPistol : GunBase
 
             // Raycast for damage
             RaycastHit hit;
-            Ray landingRay = new Ray(Muzzle.transform.position, transform.forward);
+            Ray landingRay = new Ray(Muzzle.transform.position,  Camera.main.transform.forward * 10);
 
-            Debug.DrawRay(Muzzle.transform.position, transform.forward, Color.green);
+            float distanceToObstacle = 0;
 
-            if (Physics.Raycast(landingRay, out hit, 1000.0f))
+            // Cast a sphere wrapping character controller 10 meters forward
+            // to see if it is about to hit anything.
+            if (Physics.SphereCast(Camera.main.transform.position, bulletRadius, Camera.main.transform.forward, out hit, 100))
             {
-                if (hit.collider.tag == "Enemy")
+                distanceToObstacle = hit.distance;
+                Enemy enemyHit = hit.collider.gameObject.GetComponent<Enemy>();
+                if (enemyHit)
                 {
-                    hit.collider.gameObject.GetComponent<Enemy>().TakeDamage(1.0f);
+                    enemyHit.TakeDamage(100.0f);
                 }
             }
+
+
+
+            Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward, Color.green,10.0f);
+            Debug.DrawLine(Camera.main.transform.forward,  Camera.main.transform.forward * 10, Color.red, 3.0f);
+            /*if (Physics.Raycast(landingRay, out hit, 1000.0f))
+            {
+                Enemy enemyHit = hit.collider.gameObject.GetComponent<Enemy>();
+                if (enemyHit)
+                {
+                    enemyHit.TakeDamage(100.0f);
+                }
+            }
+            */
         }
     }
 }

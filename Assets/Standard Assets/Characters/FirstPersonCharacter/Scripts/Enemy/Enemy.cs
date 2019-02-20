@@ -18,6 +18,12 @@ public class Enemy : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+      //  SetDestination();
+
+    }
+
+    void SetDestination()
+    {
         GameObject destination = GameObject.Find("Destination");
         Vector3 heading = destination.transform.position - transform.position;
         float distance = heading.magnitude;
@@ -25,12 +31,11 @@ public class Enemy : MonoBehaviour
         m_DirectionToDestination.y = 0.0f;
 
         gameObject.GetComponent<Rigidbody>().velocity = m_DirectionToDestination * Speed;
-	}
-
+    }
     public void TakeDamage(float damage)
     {
         health -= damage;
-        if (damage < 0)
+        if (health < 0)
         {
             //kill enemy
             Destroy(gameObject);
