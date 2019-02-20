@@ -9,28 +9,27 @@ public class Enemy : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        GameObject destination = GameObject.Find("Destination");
-        Vector3 heading = destination.transform.position - transform.position;
-        float distance = heading.magnitude;
-        m_DirectionToDestination = heading / distance;
+        
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-      //  SetDestination();
-
+        SetDestination();
     }
 
     void SetDestination()
     {
-        GameObject destination = GameObject.Find("Destination");
-        Vector3 heading = destination.transform.position - transform.position;
-        float distance = heading.magnitude;
-        m_DirectionToDestination = heading / distance;
-        m_DirectionToDestination.y = 0.0f;
+        if (GameObject.Find("Destination") != null)
+        {
+            GameObject destination = GameObject.Find("Destination");
+            Vector3 heading = destination.transform.position - transform.position;
+            float distance = heading.magnitude;
+            m_DirectionToDestination = heading / distance;
+            m_DirectionToDestination.y = 0.0f;
 
-        gameObject.GetComponent<Rigidbody>().velocity = m_DirectionToDestination * Speed;
+            gameObject.GetComponent<Rigidbody>().velocity = m_DirectionToDestination * Speed;
+        }
     }
     public void TakeDamage(float damage)
     {
@@ -41,6 +40,17 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject == GameObject.Find("Destination"))
+        {
+            collision.gameObject.GetComponent<Destination>().TakeDamage(10);
+
+            Destroy(gameObject);
+        }
+    }
+
 
     public float health;
     public Vector3 m_DirectionToDestination;
