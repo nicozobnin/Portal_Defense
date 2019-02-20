@@ -207,7 +207,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.0929317
+      value: -5.52
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalPosition.y
@@ -215,27 +215,31 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.9780531
+      value: 6.83
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.9728574
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.23140526
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 153.24
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
@@ -349,9 +353,30 @@ Prefab:
       propertyPath: m_Name
       value: Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 114644273119012130, guid: 7a118e58425c8d34c9cb075952eb6081,
+        type: 2}
+      propertyPath: SpawnDelay
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114644273119012130, guid: 7a118e58425c8d34c9cb075952eb6081,
+        type: 2}
+      propertyPath: EnemyObject
+      value: 
+      objectReference: {fileID: 375298930}
+    - target: {fileID: 114644273119012130, guid: 7a118e58425c8d34c9cb075952eb6081,
+        type: 2}
+      propertyPath: SpawningEnemy
+      value: 
+      objectReference: {fileID: 114731360628200928, guid: 66244522789421248aff84f7714469e8,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a118e58425c8d34c9cb075952eb6081, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &375298930 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1937896622510454, guid: 66244522789421248aff84f7714469e8,
+    type: 2}
+  m_PrefabInternal: {fileID: 1015740902}
 --- !u!1001 &1015740902
 Prefab:
   m_ObjectHideFlags: 0

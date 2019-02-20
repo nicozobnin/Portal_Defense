@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33474354506062296}
   - component: {fileID: 23573699967432700}
   - component: {fileID: 135730120496910088}
+  - component: {fileID: 114644273119012130}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -113,6 +114,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1391346880759898}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114644273119012130
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1391346880759898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7c4c973f3dfe624ca3dd5c680b38e50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnDelay: 1000
+  SpawningEnemy: {fileID: 114731360628200928, guid: 66244522789421248aff84f7714469e8,
+    type: 2}
+  SpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!135 &135730120496910088
 SphereCollider:
   m_ObjectHideFlags: 1
